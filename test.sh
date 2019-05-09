@@ -3,16 +3,15 @@
 W="$(tput cols)"
 H="$(tput lines)"
 
+echo "$((W-1))"
 RED=$(tput setaf 1)
 GREEN=$(tput setaf 2)
 NORMAL=$(tput sgr0)
 
-
-echo "$W"
-for i in $(seq 1 $W)
+for i in $(seq 1 $H)
 do
 	#printf "="
-	printf '%s%*s%s' "$GREEN" $W "[OK]" "$NORMAL"
+	printf '%s%s%*s%s' "$GREEN" "=" $((W-1)) "[OK]" "$NORMAL"
 	#sleep 1
 
 done
